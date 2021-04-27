@@ -13,11 +13,15 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import numpy as np
 
+X = pd.read_csv('deGrom_data_clean.csv')
+C = pd.read_csv('deGrom_data_class.csv')
 
-df = pd.read_csv('deGrom_data_clean.csv')
-dfS = df.sample(frac=1).copy()
-X = dfS.drop(['pitch_class'],axis=1).copy()
-C = dfS['pitch_class'].copy()
+idx = np.random.RandomState(seed=42).permutation(X.index)
+X = X.reindex(idx).reset_index(drop=True)
+C = C.reindex(idx).reset_index(drop=True)
+
+X = X.to_numpy()
+C = np.ravel(C.to_numpy())
 
 pca = PCA(n_components=X.shape[1]).fit(X)
 

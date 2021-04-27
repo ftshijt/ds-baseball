@@ -226,5 +226,35 @@ df.drop(['if_fielding_alignment','of_fielding_alignment'], axis=1, inplace=True)
 df.drop(df.loc[df['if_alignment_class']==0].index, axis=0, inplace=True)
 df.drop(df.loc[df['of_alignment_class']==0].index, axis=0, inplace=True)
 
-# save cleaned dataframe
-df.to_csv('deGrom_data_clean.csv',index=False)
+# split in to data (X) and class (C)
+X = df.drop(['pitch_class'],axis=1).copy()
+C = df['pitch_class'].copy()
+
+# save cleaned data and class
+X.to_csv('deGrom_data_clean.csv',index=False)
+C.to_csv('deGrom_data_class.csv',index=False)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
