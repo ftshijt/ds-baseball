@@ -89,10 +89,10 @@ feature_2 = [
 classifiers = [
     KNeighborsClassifier(3),
     DecisionTreeClassifier(max_depth=5),
-    AdaBoostClassifier(n_estimators=20),
+    # AdaBoostClassifier(n_estimators=20),
     RandomForestClassifier(max_depth=None, n_estimators=10, max_features=1),
-    GaussianNB(),
-    QuadraticDiscriminantAnalysis(),
+    # GaussianNB(),
+    # QuadraticDiscriminantAnalysis(),
     LinearDiscriminantAnalysis(),
     # SVC(kernel='linear'),
     # SVC(kernel='rbf')
